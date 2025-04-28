@@ -9,6 +9,10 @@ import { cn } from "@/lib/utils"
 
 const inter = Inter({ subsets: ["latin"] })
 
+export const metadata = {
+  generator: 'v0.dev'
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -16,7 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className="theme-ocean">
-      <body className={cn(inter.className, "antialiased")}>
+      <body
+        className={cn(inter.className, "antialiased")}
+        suppressHydrationWarning
+      >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <LoadingScreen />
           <div className="relative flex min-h-screen flex-col">
@@ -29,7 +36,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-export const metadata = {
-      generator: 'v0.dev'
-    };
